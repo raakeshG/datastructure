@@ -68,3 +68,50 @@ public class Solution {
 	}
 }
 ``` 
+
+Time Complexity: O(2N)
+
+Space Complexity: O(1)
+
+## Better Approach - II
+
+### Intution 
+Assuming   
+### Code
+``` java 
+public class Solution {
+	
+	public static int findSecondLargest(int arr[]) {
+		int largest = Integer.MIN_VALUE;
+		int second_largest = Integer.MIN_VALUE;
+		int smallest = Integer.MAX_VALUE;
+		int second_smallest = Integer.MAX_VALUE;
+		
+		for(int i=0; i<arr.length; i++) {
+			largest = Math.max(largest, arr[i]);
+			smallest = Math.max(smallest, arr[i]);
+		}
+		
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]>second_largest && arr[i]!= largest) {
+				second_largest = arr[i];
+			}
+			if(arr[i]<second_smallest && arr[i]!=smallest) {
+				second_smallest = arr[i];
+			}
+		}
+		System.out.println(second_smallest);
+		return second_largest;
+	}
+	
+	public static void main(String args[]) {
+		int arr[] = {2,4,6,5,2,3};
+		
+		System.out.print(findLargest(arr));
+	}
+}
+``` 
+
+Time Complexity: O(2N)
+
+Space Complexity: O(1)
